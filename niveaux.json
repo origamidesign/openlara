@@ -1,0 +1,66 @@
+[
+  {
+    "file": "GYM.PSX",
+    "label": "Maison de Lara"
+  },
+  {
+    "file": "LEVEL1.PSX",
+    "label": "Les Grottes"
+  },
+  {
+    "file": "LEVEL2.PSX",
+    "label": "Cité de Vilcabamba"
+  },
+  {
+    "file": "LEVEL3A.PSX",
+    "label": "La Vallée perdue"
+  },
+  {
+    "file": "LEVEL3B.PSX",
+    "label": "Tombe de Qualopec"
+  },
+  {
+    "file": "LEVEL4.PSX",
+    "label": "La Folie Saint-François"
+  },
+  {
+    "file": "LEVEL5.PSX",
+    "label": "Le Colisée"
+  },
+  {
+    "file": "LEVEL6.PSX",
+    "label": "Palais Midas"
+  },
+  {
+    "file": "LEVEL7A.PSX",
+    "label": "La Citerne"
+  },
+  {
+    "file": "LEVEL7B.PSX",
+    "label": "Tombe de Tihocan"
+  },
+  {
+    "file": "LEVEL8A.PSX",
+    "label": "Cité de Khamoon"
+  },
+  {
+    "file": "LEVEL8B.PSX",
+    "label": "Obélisque de Khamoon"
+  },
+  {
+    "file": "LEVEL8C.PSX",
+    "label": "Sanctuaire du Scion"
+  },
+  {
+    "file": "LEVEL10A.PSX",
+    "label": "Mines de Natla"
+  },
+  {
+    "file": "LEVEL10B.PSX",
+    "label": "Atlantide"
+  },
+  {
+    "file": "LEVEL10C.PSX",
+    "label": "La Grande Pyramide"
+  }
+]
