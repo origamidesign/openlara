@@ -1,10 +1,10 @@
-# OpenLara — version web 7, format 4:3
+# OpenLara — version web 8, logo agrandi
 
-Préparée le 25 octobre 2026 pour remplacer la présentation du site existant. Voir `FORMAT-4-3-V7.md` (qui remplace les anciens réglages de ratio), puis `BOUTON-ADAPTATIF-V6.md`, `LOGO-MENU-V5.md`, `MENU-INTERIEUR-V4.md` puis `ADAPTATION-ARCADE.md` pour les changements et tests. Le binaire du moteur, les niveaux, les commandes et l'audio sont conservés. Le pont JavaScript observe la lecture des niveaux pour afficher le logo uniquement sur l'écran titre.
+Préparée le 25 octobre 2026 pour remplacer la présentation du site existant. Voir `LOGO-AGRANDI-V8.md`, puis `FORMAT-4-3-V7.md` (qui remplace les anciens réglages de ratio), puis `BOUTON-ADAPTATIF-V6.md`, `LOGO-MENU-V5.md`, `MENU-INTERIEUR-V4.md` puis `ADAPTATION-ARCADE.md` pour les changements et tests. Le binaire du moteur, les niveaux, les commandes et l'audio sont conservés. Le pont JavaScript observe la lecture des niveaux pour afficher le logo uniquement sur l'écran titre.
 
 ## Mise à jour manuelle
 
-Les fichiers sont préparés dans le dossier local `openlara/` du projet portable. Dans GitHub Desktop : sélectionner **openlara**, saisir le résumé **Passe tout le jeu en 4:3**, cliquer **Commit to main**, puis **Push origin**. Les réglages GitHub Pages existants n'ont pas besoin d'être changés. Codex n'effectue ni connexion, ni commit, ni envoi pour cette version.
+Les fichiers sont préparés dans le dossier local `openlara/` du projet portable. Dans GitHub Desktop : sélectionner **openlara**, saisir le résumé **Agrandit le logo du menu**, cliquer **Commit to main**, puis **Push origin**. Les réglages GitHub Pages existants n'ont pas besoin d'être changés. Codex n'effectue ni connexion, ni commit, ni envoi pour cette version.
 
 Après le déploiement, recharger https://origamidesign.github.io/openlara/ avec Ctrl+F5 dans un navigateur classique. Recharger également le média de la borne. Tester les commandes et la lisibilité depuis Second Life : le fonctionnement de cette nouvelle présentation sur la borne n'est pas encore confirmé.
 
