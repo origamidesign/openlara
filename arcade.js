@@ -13,11 +13,11 @@
   function fitCanvas() {
     const width = Math.max(1, window.innerWidth);
     const height = Math.max(1, window.innerHeight);
-    const scale = Math.min(width / 854, height / 480);
-    canvas.style.width = (854 * scale) + 'px';
+    const scale = Math.min(width / 640, height / 480);
+    canvas.style.width = (640 * scale) + 'px';
     canvas.style.height = (480 * scale) + 'px';
-    // Stay inside the 4:3 artwork on the title; use the full render in gameplay.
-    const controlsWidth = titleLogo.hidden ? 854 * scale : Math.min(854 * scale, 480 * scale * 4 / 3);
+    // Both the title and gameplay now use the same complete 4:3 render.
+    const controlsWidth = 640 * scale;
     controls.style.width = controlsWidth + 'px';
     controls.style.height = (480 * scale) + 'px';
   }
