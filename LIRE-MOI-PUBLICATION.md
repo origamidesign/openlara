@@ -1,10 +1,10 @@
-# OpenLara — version web 3, affichage arcade
+# OpenLara — version web 4, menu intérieur
 
-Préparée le 25 octobre 2026 pour remplacer la présentation du site existant. Voir `ADAPTATION-ARCADE.md` pour les changements et tests. Le moteur, ses niveaux, les commandes et l'audio restent ceux de la version 2.
+Préparée le 25 octobre 2026 pour remplacer la présentation du site existant. Voir `MENU-INTERIEUR-V4.md` puis `ADAPTATION-ARCADE.md` pour les changements et tests. Le moteur, ses niveaux, les commandes et l'audio restent ceux de la version 2.
 
 ## Mise à jour manuelle
 
-Les fichiers sont préparés dans le dossier local `openlara/` du projet portable. Dans GitHub Desktop : sélectionner **openlara**, saisir le résumé **Adapte l'affichage arcade**, cliquer **Commit to main**, puis **Push origin**. Les réglages GitHub Pages existants n'ont pas besoin d'être changés. Codex n'effectue ni connexion, ni commit, ni envoi pour cette version.
+Les fichiers sont préparés dans le dossier local `openlara/` du projet portable. Dans GitHub Desktop : sélectionner **openlara**, saisir le résumé **Place le menu dans le jeu**, cliquer **Commit to main**, puis **Push origin**. Les réglages GitHub Pages existants n'ont pas besoin d'être changés. Codex n'effectue ni connexion, ni commit, ni envoi pour cette version.
 
 Après le déploiement, recharger https://origamidesign.github.io/openlara/ avec Ctrl+F5 dans un navigateur classique. Recharger également le média de la borne. Tester les commandes et la lisibilité depuis Second Life : le fonctionnement de cette nouvelle présentation sur la borne n'est pas encore confirmé.
 
@@ -12,7 +12,7 @@ Pour restaurer cette version : copier tout le contenu du présent dossier à la 
 
 ## Utilisation
 
-Le jeu occupe la plus grande surface possible sans recadrage ni déformation. Les bandes noires nécessaires au maintien des proportions sont conservées. Le bouton ☰ en haut à droite ouvre le choix de niveau ; choisir puis cliquer sur **Jouer à ce niveau**. Le panneau se ferme et rend le clavier au jeu. Les commandes se règlent dans le jeu.
+Le jeu occupe la plus grande surface possible sans recadrage ni déformation. Les bandes noires nécessaires au maintien des proportions sont conservées. Le bouton ☰ en haut à droite de la zone centrale de l'image ouvre le choix de niveau ; choisir puis cliquer sur **Jouer à ce niveau**. Le panneau se ferme et rend le clavier au jeu. Les commandes se règlent dans le jeu.
 
 Le bouton Plein écran est facultatif et peut être indisponible dans le navigateur média de Second Life. La page s'adapte déjà à la surface du média sans l'utiliser. Les sauvegardes du moteur restent locales au navigateur, sans synchronisation de compte.
 
