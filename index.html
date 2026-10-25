@@ -1,69 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-		<head>
-			<title>Tomb Raider 1 — OpenLara</title>
-			
-			<style>
-			html {
-				overflow: auto;
-			}
-			body {
-				margin: 0px;
-				font-size: 1.0em;
-				touch-action: none;
-			}
-			.game_fs {
-				position: fixed;
-				top: 0px;
-				left: 0px;
-				margin: 0px;
-				width: 100%;
-				height: 100%;
-				border: 0;
-				display: block;
-			}
-			table {
-				border-collapse: collapse;
-			}
-
-			table, th, td {
-				border: 1px solid black;
-				padding: 4px;
-			}
-			</style>
-			<meta charset="utf-8">
-			<meta name="apple-mobile-web-app-capable" content="yes">
-			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-			<meta name="viewport" content="viewport-fit=cover, user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-			<!--<meta name="viewport" content="width=854, user-scalable=no">-->
-		<style>
-body{background:#111820;color:#e4e9ed;font:16px system-ui,sans-serif;margin:0;text-align:center}
-header{padding:14px}header strong{display:block;font-size:22px;margin-bottom:12px}
-button,select{font:inherit;padding:8px;margin:4px;border-radius:5px}p{font-size:14px;color:#b8c5ce}
-canvas.game{width:min(100%,1100px);height:auto;outline:none;background:black}
-#goFS{margin:8px auto}#info{font-size:13px;padding:8px}a{color:#8ccdf8}#status{padding:8px}
-</style><link rel="icon" href="data:,"></head>
-		<body>
-<header><strong>Tomb Raider 1 · OpenLara</strong>
-<label>Niveau <select id="levelSelect"></select></label>
-<button id="loadLevel" disabled>Jouer à ce niveau</button>
-<p>Cliquer dans le jeu pour activer les commandes et le son. Les commandes sont configurables dans le menu du jeu.</p>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tomb Raider 1 — OpenLara</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="arcade.css?v=3">
+</head>
+<body>
+<canvas id="canvas" class="game" width="854" height="480" tabindex="0" aria-label="Tomb Raider 1" oncontextmenu="event.preventDefault()"></canvas>
+<header>
+  <button id="menuToggle" type="button" aria-label="Ouvrir le menu des niveaux" aria-controls="arcadeMenu" aria-expanded="false" title="Menu des niveaux">☰</button>
+  <section id="arcadeMenu" aria-label="Menu des niveaux" hidden>
+    <div class="menu-heading"><strong>Tomb Raider 1</strong><button id="menuClose" type="button" aria-label="Fermer le menu">×</button></div>
+    <label for="levelSelect">Choisir un niveau</label>
+    <select id="levelSelect"></select>
+    <button id="loadLevel" type="button" disabled>Jouer à ce niveau</button>
+    <button id="goFS" type="button">Plein écran</button>
+    <p>Cliquer dans le jeu pour activer le clavier et le son. Les commandes se règlent dans les options du jeu.</p>
+    <div id="info"><a href="https://github.com/XProger/OpenLara" target="_blank" rel="noopener noreferrer">OpenLara — XProger</a></div>
+  </section>
 </header>
-			<button id="goFS">Plein écran</button>
-			<canvas class="game" id="canvas" tabindex="0" width="854" height="480" oncontextmenu="event.preventDefault()"></canvas><br>
-			<div id="status">Starting...</div>
-			<script>
+<div id="status" role="status">Chargement…</div>
+<script>
 				var statusElement = document.getElementById('status');
 				var canvasElement = document.getElementById('canvas');
 				var proc;
 
-				function fullscreen(container) {
-					Module.ccall('change_fs_mode', 'null', [], []);
-					canvasElement.focus();
-				}
+				function fullscreen() {
+    var root = document.documentElement;
+    var action = document.fullscreenElement ? document.exitFullscreen && document.exitFullscreen() : root.requestFullscreen && root.requestFullscreen();
+    if (action && action.catch) action.catch(function () { Module.setStatus('Plein écran indisponible dans ce navigateur.'); });
+    canvasElement.focus();
+}
 
 				var goFS = document.getElementById("goFS");
-				document.getElementById("goFS").style.display = 'block';
+				
 				goFS.addEventListener("click", function() { fullscreen(canvasElement); }, false);
 
 				window.onload = function() { window.focus(); }
@@ -73,7 +45,7 @@ canvas.game{width:min(100%,1100px);height:auto;outline:none;background:black}
 					preRun: [],
 					postRun: [function () {
     document.getElementById('loadLevel').disabled = false;
-    Module.setStatus('Prêt — choisir un niveau puis cliquer sur Jouer.');
+    Module.setStatus('');
 }],
 					print: (function() {
 								return function(text) {
@@ -96,7 +68,8 @@ canvas.game{width:min(100%,1100px);height:auto;outline:none;background:black}
 					setStatus: function(text) {
 						if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
 						if (text === Module.setStatus.text) return;
-						statusElement.innerHTML = text;
+						statusElement.textContent = text;
+                        statusElement.hidden = !text;
 					},
 					totalDependencies: 0,
 					monitorRunDependencies: function(left) {
@@ -183,127 +156,14 @@ canvas.game{width:min(100%,1100px);height:auto;outline:none;background:black}
 				window.onerror = function(event) {
 					Module.setStatus('Exception thrown, see JavaScript console');
 					//spinnerElement.style.display = 'none';
-					document.getElementById('info').innerHTML = event;
+					statusElement.hidden = false;
 					Module.setStatus = function(text) {
 						if (text) Module.printErr('[post-exception status] ' + text);
 					};
 				};
 			</script>
-
-			<div id="info">Moteur <a href="https://github.com/XProger/OpenLara">OpenLara — XProger</a></div>
-<script>
-				var script = document.createElement('script');
-
-				if ('WebAssembly' in window) {
-					console.log("Start WebAssembly!");
-					script.src = "OpenLara_wasm.js?v=2";
-				} else {
-					console.log("Start asm.js!");
-					script.src = "OpenLara.js";
-					(function() {
-						var memoryInitializer = 'OpenLara.js.mem';
-						if (typeof Module['locateFile'] === 'function') {
-							memoryInitializer = Module['locateFile'](memoryInitializer);
-						} else if (Module['memoryInitializerPrefixURL']) {
-							memoryInitializer = Module['memoryInitializerPrefixURL'] + memoryInitializer;
-						}
-						var xhr = Module['memoryInitializerRequest'] = new XMLHttpRequest();
-						xhr.open('GET', memoryInitializer, true);
-						xhr.responseType = 'arraybuffer';
-						xhr.send(null);
-					})();
-				}
-
-				document.body.appendChild(script);
-
-				//window.onbeforeunload = function () { // Ctrl+W
-				//	return "Really want to quit the game?";
-				//};
-
-				var isMobile = !!navigator.platform && (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
-
-				if (isMobile) {
-					canvasElement.className = "game_fs";
-					statusElement.style.display = 'none';
-					document.getElementById('info').style.display = 'none';
-				}
-
-				function getLatestChanges() {
-					var xhr = new XMLHttpRequest();
-					
-					xhr.onreadystatechange = function() {
-						if (this.readyState === 4 && this.status === 200) {
-							e = document.getElementById('latest_changes');
-							str = '<table>';
-							for (var i = 0; i < this.response.length; i++) {
-								var item = this.response[i];
-								var d = new Date(item.commit.author.date);
-								var date = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
-								str += '<tr><td>' + date + '</td><td border="1px">' + item.commit.message + '</td></tr>';
-							}
-							str += '</table>';
-							e.innerHTML = str;
-						}
-					};
-					
-					xhr.open('GET', "https://api.github.com/repos/XProger/OpenLara/commits", true);
-					xhr.responseType = 'json';
-					xhr.send(null);				
-				}
-				
-				function readLevel(event) {
-					var reader = new FileReader();
-					reader.onload = function(){
-						var size = reader.result.byteLength;
-						var data = Module._malloc(size);
-						Module.writeArrayToMemory(new Uint8Array(reader.result), data);
-						Module.ccall('game_level_load', 'null', ['number', 'number'], [data, size]);
-					};
-					reader.readAsArrayBuffer(event.target.files[0]);
-				}
-				/*
-				var db;      
-				var request = indexedDB.open("db");
-request.onupgradeneeded = function() {
-console.log("!!!!!!!! NO DB!");
-};
-request.onsuccess = function() {
-  db = request.result;
-  // Enable our buttons once the IndexedDB instance is available.
-
-};
-
- function logTimestamps(timestamps) {
-  console.log('There are ' + timestamps.length +
-	' timestamp(s) saved in IndexedDB: ' + timestamps.join(', '));
-} 
-				
-				function backupSaves() {
-
-  var transaction = db.transaction("FILE_DATA", 'readonly');
-  var store = transaction.objectStore("FILE_DATA");
-  store.get("level/1/GYMLOAD.PNG").onsuccess = function(e) {
-	var value = e.target.result;
-	// value will be: { zip: {}, foo: { bar: { baz: 1 } } }
-	console.log(value);
-					var data = value;
-					var a = document.createElement("a");
-					
-					a.href     = URL.createObjectURL(new Blob([data]));
-					a.download = "savegame.dat";
-					document.body.appendChild(a);
-					a.click();
-					document.body.removeChild(a);    
-  };
-
-				}
-*/
-				function restoreSaves() {
-					alert('restore');
-				}
-			</script>
-
-			
-		
-		<script src="lanceur.js"></script></body>
+<script src="arcade.js?v=3"></script>
+<script src="lanceur.js?v=3"></script>
+<script src="OpenLara_wasm.js?v=2"></script>
+</body>
 </html>

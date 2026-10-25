@@ -1,0 +1,22 @@
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;background:#000;color:#eef2f5;font:15px system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* Keep the whole 854 x 480 render, including text drawn in its black borders. */
+#canvas{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);display:block;border:0;outline:none;touch-action:none}
+header{position:fixed;inset:0;pointer-events:none;z-index:10}
+button,select{font:inherit}
+button,select,a{touch-action:manipulation}
+button{cursor:pointer;color:inherit;border:1px solid #ffffff40;background:#222b34;border-radius:6px;padding:9px 12px}
+button:hover,button:focus-visible{background:#354452;outline:2px solid #9dd2fa;outline-offset:1px}
+button:disabled{opacity:.5;cursor:wait}
+#menuToggle{position:absolute;top:10px;right:10px;width:34px;height:34px;padding:0;font-size:21px;line-height:1;background:#111b;opacity:.65;pointer-events:auto}
+#menuToggle:hover,#menuToggle:focus-visible,#menuToggle[aria-expanded=true]{opacity:1}
+#arcadeMenu{position:absolute;top:52px;right:10px;width:300px;max-width:calc(100% - 20px);max-height:calc(100% - 62px);overflow:auto;pointer-events:auto;background:#111b24f5;border:1px solid #ffffff30;border-radius:9px;padding:15px;box-shadow:0 8px 30px #0009}
+.menu-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+#menuClose{padding:0;width:28px;height:28px;font-size:24px;line-height:1}
+label{display:block;margin-bottom:7px}
+select{width:100%;padding:9px 7px;background:#f5f7f9;color:#111;border-radius:5px}
+#loadLevel,#goFS{display:block;width:100%;margin-top:10px}
+p{font-size:13px;line-height:1.5;color:#bdcbd5;margin:14px 0}
+#info{font-size:12px}a{color:#a2d5fa}
+#status{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:85%;padding:12px 18px;background:#101923e8;border:1px solid #ffffff30;border-radius:7px;z-index:20;pointer-events:none;text-align:center}

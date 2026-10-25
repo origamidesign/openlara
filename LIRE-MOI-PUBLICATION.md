@@ -1,39 +1,27 @@
-# Tomb Raider 1 avec OpenLara — version web v1
+# OpenLara — version web 3, affichage arcade
 
-Préparée le 25 octobre 2026. Ce dossier contient le site à publier : aucun compilateur ni installation supplémentaire n'est nécessaire pour l'héberger.
+Préparée le 25 octobre 2026 pour remplacer la présentation du site existant. Voir `ADAPTATION-ARCADE.md` pour les changements et tests. Le moteur, ses niveaux, les commandes et l'audio restent ceux de la version 2.
 
-## Publier sur GitHub Pages
+## Mise à jour manuelle
 
-1. Créer un dépôt pour ce jeu, par exemple `openlara`. Ce nom est une proposition, aucun dépôt n'a été créé par cette préparation.
-2. Copier **tout le contenu de ce dossier** dans la racine du dépôt : `index.html`, `.nojekyll`, les scripts, les données et les dossiers `level` et `audio`. Ne pas envoyer uniquement le ZIP, ni le placer à la place des fichiers extraits. Ne pas envoyer les deux grosses archives sources.
-3. Enregistrer les fichiers dans le dépôt (Commit, puis Publish repository ou Push origin si GitHub Desktop est utilisé). Ne pas utiliser Git LFS pour les fichiers du site.
-4. Sur GitHub : **Settings → Pages → Deploy from a branch → main → / (root) → Save**.
-5. Attendre le déploiement et ouvrir l'adresse affichée par GitHub Pages.
+Les fichiers sont préparés dans le dossier local `openlara/` du projet portable. Dans GitHub Desktop : sélectionner **openlara**, saisir le résumé **Adapte l'affichage arcade**, cliquer **Commit to main**, puis **Push origin**. Les réglages GitHub Pages existants n'ont pas besoin d'être changés. Codex n'effectue ni connexion, ni commit, ni envoi pour cette version.
 
-Si le dépôt s'appelle `openlara` sur le compte `origamidesign`, l'adresse attendue serait `https://origamidesign.github.io/openlara/`. Cette adresse est un exemple : sa publication n'a pas été effectuée ni vérifiée.
+Après le déploiement, recharger https://origamidesign.github.io/openlara/ avec Ctrl+F5 dans un navigateur classique. Recharger également le média de la borne. Tester les commandes et la lisibilité depuis Second Life : le fonctionnement de cette nouvelle présentation sur la borne n'est pas encore confirmé.
 
-Documentation officielle consultée le 25 octobre 2026 : https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Pour restaurer cette version : copier tout le contenu du présent dossier à la racine du dépôt du jeu, `.nojekyll` compris. Ne pas envoyer le ZIP à la place des fichiers extraits, ni les archives sources. Ne pas utiliser Git LFS pour les fichiers du site.
 
-## Jouer
+## Utilisation
 
-Attendre le démarrage, choisir un niveau puis cliquer sur **Jouer à ce niveau**. Cliquer dans le jeu pour le clavier et le son. **Plein écran** agrandit le jeu ; Échap permet de revenir à la page. Les commandes peuvent être consultées ou modifiées dans les options du moteur. Les touches des jeux Fuckerman n'ont pas été appliquées.
+Le jeu occupe la plus grande surface possible sans recadrage ni déformation. Les bandes noires nécessaires au maintien des proportions sont conservées. Le bouton ☰ en haut à droite ouvre le choix de niveau ; choisir puis cliquer sur **Jouer à ce niveau**. Le panneau se ferme et rend le clavier au jeu. Les commandes se règlent dans le jeu.
 
-16 niveaux sélectionnables de Tomb Raider 1 : les 15 niveaux principaux et la maison de Lara. Quatre fichiers de cinématiques sont aussi présents pour les transitions. Les jeux Tomb Raider 2 à 5 et Unfinished Business ne sont pas inclus dans cette version.
+Le bouton Plein écran est facultatif et peut être indisponible dans le navigateur média de Second Life. La page s'adapte déjà à la surface du média sans l'utiliser. Les sauvegardes du moteur restent locales au navigateur, sans synchronisation de compte.
 
-Ouvrir `index.html` par double clic (adresse `file://`) ne remplace pas un hébergement : utiliser GitHub Pages ou un serveur HTTP local. L'aperçu lancé par Codex est temporaire, ce n'est pas l'adresse publique.
+## Contenu et provenance
 
-## Provenance et dépendances
+- 16 niveaux sélectionnables de TR1 (maison et 15 principaux), quatre fichiers PSX de cinématiques ; TR2 à TR5 et Unfinished Business non inclus.
+- Moteur officiel précompilé annonçant OpenLara (Aug 13 2022), téléchargé depuis http://xproger.info/projects/OpenLara/ ; projet https://github.com/XProger/OpenLara ; licence dans `LICENSE-OpenLara.txt`. Pas de compilation locale. HTTP a été utilisé après un échec TLS sur le serveur officiel HTTPS.
+- Niveaux extraits de l'archive fournie `Tomb-Raider-1-2-3-4-5-Map-viewer-and-levels-master.zip`. Les notices consultées n'identifient pas de licence de redistribution des niveaux ; la licence BSD concerne le moteur.
+- Images de chargement, musiques et voix FR/EN de la démo officielle, embarquées localement. Autres langues audio non incluses.
+- Site statique, sans PHP ni Google Analytics. Aucun appel au serveur officiel nécessaire à l'exécution du jeu. Hébergement HTTP(S), navigateur avec WebGL et stockage navigateur requis. Le double clic sur `index.html` en `file://` ne remplace pas un hébergement.
 
-- Moteur compilé récupéré depuis la démo officielle : http://xproger.info/projects/OpenLara/ ; fichier JavaScript, fichier mémoire, données initiales, paquet moteur et worker. Le moteur se présente comme **OpenLara (Aug 13 2022)** au démarrage. Il n'a pas été recompilé localement. Le serveur HTTPS officiel a échoué lors de cette préparation ; les téléchargements ont utilisé son adresse HTTP.
-- Projet moteur : https://github.com/XProger/OpenLara ; licence BSD à deux clauses conservée dans `LICENSE-OpenLara.txt`. La page a été adaptée à un hébergement statique, sans PHP ni Google Analytics.
-- Niveaux PSX extraits du ZIP fourni `Tomb-Raider-1-2-3-4-5-Map-viewer-and-levels-master.zip`, dossier `Tomb-Raider-1-PSX-Files`. La licence du moteur concerne son code ; aucune autorisation de redistribution des données Tomb Raider n'a été identifiée dans les notices du ZIP.
-- Images de chargement, musiques et voix françaises/anglaises récupérées dans les répertoires de la démo officielle. Les autres langues de voix ne sont pas embarquées.
-- Tous les fichiers nécessaires au test sont locaux au site ; aucun chargement du moteur depuis un autre domaine n'est nécessaire à l'exécution. Connexion à l'hébergement et navigateur avec WebGL requis. Les sauvegardes du moteur utilisent le stockage du navigateur et ne sont pas synchronisées à un compte.
-
-Les deux ZIP d'origine restent conservés à la racine du projet portable, hors de ce dossier de publication. Les scripts de préparation et journaux de test sont dans `../../travail/`.
-
-## Validation et limites
-
-Tests locaux sous Microsoft Edge (Chromium), le 25 octobre 2026 : démarrage, chargement des 16 niveaux sélectionnables, image modifiée après une commande de déplacement, changement de niveau et plein écran. Le test final n'a signalé aucune exception JavaScript ni réponse HTTP 404. Le journal et les captures sont conservés dans le dossier de travail.
-
-Ce contrôle ne constitue pas une partie complète : progression entre tous les niveaux, cinématiques, combats, chaque piste audio et persistance des sauvegardes non validés exhaustivement. Aucun test dans Second Life. Aucun dépôt GitHub créé, aucun transfert ni déploiement GitHub Pages effectué pendant la préparation.
+Les archives et outils de préparation restent dans le projet portable, hors du dépôt du jeu. Aucune installation supplémentaire nécessaire pour publier. `SHA256.txt` décrit cette version. Contrôles dans un navigateur de bureau, sans validation de la borne Second Life ni test complet de progression, des pistes audio ou des sauvegardes.

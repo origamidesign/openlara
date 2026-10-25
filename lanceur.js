@@ -18,8 +18,8 @@ play.addEventListener('click', async () => {
     // The native loader owns this buffer after game_level_load.
     Module.HEAPU8.set(bytes, pointer);
     Module.ccall('game_level_load', null, ['number', 'number'], [pointer, bytes.length]);
-    canvasElement.focus();
-    Module.setStatus('Niveau chargé.');
+    window.arcadeMenu.close();
+    Module.setStatus('');
   } catch (e) { Module.setStatus('Erreur : ' + e.message); }
   finally { play.disabled = false; }
 });
