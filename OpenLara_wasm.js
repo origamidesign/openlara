@@ -1912,6 +1912,9 @@ var JSEvents = {
  }),
  registerOrRemoveHandler: (function(eventHandler) {
   var jsEventHandler = function jsEventHandler(event) {
+   // Keep native page controls outside the game's global input callbacks.
+   var pageControl = event.target && event.target.closest && event.target.closest('header, #goFS, #info');
+   if (pageControl) return;
    ++JSEvents.inEventHandler;
    JSEvents.currentEventHandler = eventHandler;
    JSEvents.runDeferredCalls();

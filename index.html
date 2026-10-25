@@ -196,7 +196,7 @@ canvas.game{width:min(100%,1100px);height:auto;outline:none;background:black}
 
 				if ('WebAssembly' in window) {
 					console.log("Start WebAssembly!");
-					script.src = "OpenLara_wasm.js";
+					script.src = "OpenLara_wasm.js?v=2";
 				} else {
 					console.log("Start asm.js!");
 					script.src = "OpenLara.js";
