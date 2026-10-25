@@ -8,6 +8,7 @@
   Module.onArcadeLevelRead = function (path) {
     if (!/\.(psx|phd|tr2|tr4)$/i.test(path)) return;
     titleLogo.hidden = !/(^|\/)TITLE\.(psx|phd|tr2|tr4)$/i.test(path);
+    fitCanvas();
   };
   function fitCanvas() {
     const width = Math.max(1, window.innerWidth);
@@ -15,9 +16,9 @@
     const scale = Math.min(width / 854, height / 480);
     canvas.style.width = (854 * scale) + 'px';
     canvas.style.height = (480 * scale) + 'px';
-    // The title artwork is 4:3 inside the wider render. Keep both the button
-    // and its panel in that central area when the media's black edges are cropped.
-    controls.style.width = Math.min(854 * scale, 480 * scale * 4 / 3) + 'px';
+    // Stay inside the 4:3 artwork on the title; use the full render in gameplay.
+    const controlsWidth = titleLogo.hidden ? 854 * scale : Math.min(854 * scale, 480 * scale * 4 / 3);
+    controls.style.width = controlsWidth + 'px';
     controls.style.height = (480 * scale) + 'px';
   }
   // Register before the engine so it reads the fitted CSS size on resize.
