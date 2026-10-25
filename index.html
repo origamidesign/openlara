@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tomb Raider 1 — OpenLara</title>
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="arcade.css?v=8">
+<link rel="stylesheet" href="arcade.css?v=9">
 </head>
 <body>
 <canvas id="canvas" class="game" width="640" height="480" tabindex="0" aria-label="Tomb Raider 1" oncontextmenu="event.preventDefault()"></canvas>
@@ -18,6 +18,10 @@
     <select id="levelSelect"></select>
     <button id="loadLevel" type="button" disabled>Jouer à ce niveau</button>
     <button id="goFS" type="button">Plein écran</button>
+    <div class="volume-control">
+      <label for="masterVolume">Volume <output id="volumeValue" for="masterVolume">100 %</output></label>
+      <input id="masterVolume" type="range" min="0" max="100" step="1" value="100" aria-label="Volume général du jeu">
+    </div>
     <p>Cliquer dans le jeu pour activer le clavier et le son. Les commandes se règlent dans les options du jeu.</p>
     <div id="info"><a href="https://github.com/XProger/OpenLara" target="_blank" rel="noopener noreferrer">OpenLara — XProger</a></div>
   </section>
@@ -100,7 +104,7 @@
 							R[i] = Module.getValue(index + 2, 'i16') / 0x8000;
 						}
 					}
-					proc.connect(audioContext.destination);
+					window.arcadeAudio.connect(proc, audioContext);
 				}
 
 				function getLanguage() {
@@ -165,6 +169,7 @@
 			</script>
 <script src="arcade.js?v=7"></script>
 <script src="lanceur.js?v=6"></script>
+<script src="volume.js?v=9"></script>
 <script src="OpenLara_wasm.js?v=5"></script>
 </body>
 </html>
