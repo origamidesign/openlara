@@ -17,6 +17,7 @@ play.addEventListener('click', async () => {
     if (!pointer) throw Error('Mémoire insuffisante');
     // The native loader owns this buffer after game_level_load.
     Module.HEAPU8.set(bytes, pointer);
+    document.getElementById('titleLogo').hidden = true;
     Module.ccall('game_level_load', null, ['number', 'number'], [pointer, bytes.length]);
     window.arcadeMenu.close();
     Module.setStatus('');

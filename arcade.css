@@ -21,3 +21,7 @@ select{width:100%;padding:9px 7px;background:#f5f7f9;color:#111;border-radius:5p
 p{font-size:13px;line-height:1.5;color:#bdcbd5;margin:14px 0}
 #info{font-size:12px}a{color:#a2d5fa}
 #status{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:85%;padding:12px 18px;background:#101923e8;border:1px solid #ffffff30;border-radius:7px;z-index:20;pointer-events:none;text-align:center}
+
+/* Only transparent padding is clipped; the original PNG is preserved. */
+#titleLogo{position:absolute;right:16px;bottom:16px;width:18%;min-width:80px;max-width:170px;aspect-ratio:791/263;overflow:hidden;pointer-events:none;opacity:.9}
+#titleLogo img{position:absolute;left:-14.41214%;top:-63.87833%;width:128.9507%;height:auto;max-width:none;pointer-events:none}

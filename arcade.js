@@ -4,6 +4,11 @@
   const toggle = document.getElementById('menuToggle');
   const panel = document.getElementById('arcadeMenu');
   const controls = document.querySelector('header');
+  const titleLogo = document.getElementById('titleLogo');
+  Module.onArcadeLevelRead = function (path) {
+    if (!/\.(psx|phd|tr2|tr4)$/i.test(path)) return;
+    titleLogo.hidden = !/(^|\/)TITLE\.(psx|phd|tr2|tr4)$/i.test(path);
+  };
   function fitCanvas() {
     const width = Math.max(1, window.innerWidth);
     const height = Math.max(1, window.innerHeight);

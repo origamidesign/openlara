@@ -5156,6 +5156,11 @@ var FS = {
    throw new FS.ErrnoError(ERRNO_CODES.ESPIPE);
   }
   var bytesRead = stream.stream_ops.read(stream, buffer, offset, length, position);
+  // Observe real level reads, including native menu transitions and cached files.
+  // This notification never changes file contents or the result of the read.
+  if (position === 0 && bytesRead > 0 && stream.path && Module["onArcadeLevelRead"]) {
+   try { Module["onArcadeLevelRead"](stream.path); } catch (e) { console.error(e); }
+  }
   if (!seeking) stream.position += bytesRead;
   return bytesRead;
  }),
