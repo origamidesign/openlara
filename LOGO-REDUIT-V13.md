@@ -1,0 +1,1 @@
+Logo reduit a 28 % du cadre (au lieu de 33 %), maximum 270 px au lieu de 320, minimum 100 px. Position et proportions conservees. PNG HD 2414 x 873 strictement inchange. CSS et cache uniquement. Publication manuelle.
